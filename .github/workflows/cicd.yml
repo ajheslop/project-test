@@ -1,6 +1,9 @@
 name: Pre-Commit
-on: [push]
-on: [pull_request]
+on:
+  push:
+    branches: [ add-pre-commit ]
+  pull_request:
+    branches: [ add-pre-commit ]
 jobs:
   Setup-Env:
     runs-on: ubuntu-latest
