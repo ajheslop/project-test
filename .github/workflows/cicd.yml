@@ -12,15 +12,4 @@ jobs:
   Slack-Notification:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-    env:
-      REPOSITORY_URL: docker.pkg.github.com
-      IMAGE_NAME: ${{ github.repository }}/alerta-cli
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: act10ns/slack@v1
-        with:
-          status: starting
-          channel: '#code-review'
-          message: Starting Docker Build and Push...
-        if: always()
+  
