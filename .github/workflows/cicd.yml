@@ -23,4 +23,3 @@ jobs:
           steps: ${{ toJson(steps) }}
           channel: '#code-review'
           message: Starting Docker Build and Push...
-        if: always()
