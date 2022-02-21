@@ -6,7 +6,7 @@ on:
     branches: [add-pre-commit]
 
 jobs:
-  pre-commit:
+  build:
     runs-on: ubuntu-latest
     env:
       REPOSITORY_URL: docker.pkg.github.com
