@@ -9,11 +9,10 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     env:
-      REPOSITORY_URL: docker.pkg.github.com
       IMAGE_NAME: ${{ github.repository }}/alerta-cli
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-    - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v1
         with:
           status: starting
           channel: '#code-review'
