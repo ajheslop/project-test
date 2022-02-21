@@ -1,20 +1,4 @@
 # This is a basic workflow to help you get started with Actions
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
-    hooks:
-    -   id: check-yaml #checks yaml files for parseable syntax.
-    -   id: end-of-file-fixer #ensures that a file is either empty, or ends with one newline.
-    -   id: trailing-whitespace # trims trailing whitespace.
-    -   id: check-json #checks json files for parseable syntax.
-    -   id: requirements-txt-fixer #sorts entries in requirements.txt.
-    -   id: check-added-large-files #prevents giant files from being committed.
-    -   id: check-ast #simply checks whether the files parse as valid python.
-    -   id: check-docstring-first #checks a common error of defining a docstring after code.
-    -   id: check-merge-conflict #checks for files that contain merge conflict strings.
-    -   id: detect-aws-credentials #detects *your* aws credentials from the aws cli credentials file.
-    -   id: detect-private-key #detects the presence of private keys.
-    -   id: name-tests-test #this verifies that test files are named correctly.
-    -   id: sort-simple-yaml #sorts simple yaml files which consist only of top-level keys, preserving comments and blocks.
 
 name: CI
 
@@ -37,20 +21,27 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    # Steps represent a sequence of tasks # This is a basic workflow to help you get started with Actions
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: SLACK Notificaiton
-        uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-          channel: '#code-review'
-        if: always() 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# This workflow contains a single job called "build"linting:
+      runs-on: ubuntu-latest
+      env:
+         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Set up Python 3.8
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.8
+
+        - name: Linting
+          run: |
+            pip install pre-commit
+            pre-commit run --all-files
