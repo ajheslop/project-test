@@ -3,14 +3,12 @@ name: pre-commit
 on:
   pull_request:
   push:
-    branches: [add-pre-commit]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REPOSITORY_URL: docker.pkg.github.com
-      IMAGE_NAME: ${{ github.repository }}/alerta-cli
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: act10ns/slack@v1
