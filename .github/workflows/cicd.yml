@@ -14,7 +14,7 @@ jobs:
     - uses: pre-commit/action@v2.0.3
       # Runs a set of commands using the runners shell
   Slack Nofify: SLACK Notificaiton
-        uses: act10ns/slack@v1
+    uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
