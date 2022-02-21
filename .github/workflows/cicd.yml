@@ -1,34 +1,13 @@
 name: pre-commit
 on:
-  pull_request:
   push:
     branches: [add-pre-commit]
 
 jobs:
-  build:
-
+  pre-commit:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
-
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    steps:
-      - uses: act10ns/slack@v1
-        with:
-          status: starting
-          channel: '#code-review'
-          message: Starting Docker Build and Push...
-        if: always()
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.3
       # Runs a set of commands using the runners shell
   
-#test
-#added other test
