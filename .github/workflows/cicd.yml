@@ -8,7 +8,10 @@ jobs:
   Pre-Commit-Checks:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🐧 running pre-commit tests on a ${{ runner.os }} server hosted by GitHub!"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.3
   Slack-Notification:
     runs-on: ubuntu-latest
     env:
