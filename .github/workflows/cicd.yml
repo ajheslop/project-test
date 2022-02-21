@@ -2,7 +2,6 @@ name: pre-commit
 on:
   push:
     branches: [add-pre-commit]
-
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
