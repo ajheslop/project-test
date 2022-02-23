@@ -34,8 +34,6 @@ jobs:
   #         steps: ${{ toJson(steps) }}
   #         channel: '#code-review'
   #       if: always()
-
-
   Slack-Notification:
     runs-on: ubuntu-latest
     needs: Pre-Commit-Checks
