@@ -41,11 +41,11 @@ jobs:
     needs: Pre-Commit-Checks
     - uses: Brymastr/slack-action@v1
       env:
-    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  with:
-    template: './template.json'
-    example_key1: example value 1
-    job_status: ${{ job.status }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      with:
+        template: './template.json'
+        example_key1: example value 1
+        job_status: ${{ job.status }}
 
 # # if required for a private repository use:
 #  - uses: actions/checkout@v2
