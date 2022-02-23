@@ -31,6 +31,7 @@ jobs:
           status: ${{ job.status }}
           config: slack.yml
           channel: '#code-review'
+          message: Deploying {{ env.GITHUB_REF_NAME }} branch
         if: always()
 
   
