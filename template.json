@@ -4,45 +4,8 @@
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": "GitHub Actions Build {{ job_status }}"
-        },
-        "accessory": {
-          "type": "button",
-          "text": {
-            "type": "plain_text",
-            "text": "View workflow",
-            "emoji": true
-          },
-          "url": "{{ actions_url }}"
+          "text": "Example: {{ example_key1 }} and {{ job_status }}"
         }
-      },
-      {
-        "type": "divider"
-      },
-      {
-        "type": "section",
-        "fields": [
-          {
-            "type": "mrkdwn",
-            "text": "*Repo:*\n<{{ repo_url }}|{{ repo }}>"
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Status:*\n{{ job_status }}"
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Ref:*\n{{ ref }}"
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Event:*\n{{ event }}"
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Commit:*\n{{ commit }}"
-          }
-        ]
       }
     ]
   }
