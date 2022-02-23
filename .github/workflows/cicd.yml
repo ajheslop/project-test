@@ -27,7 +27,9 @@ jobs:
     steps:
       - uses: act10ns/slack@v1
         with:
+          template: './template.json'
           status: ${{ job.status }}
+          example_key1: example value 1
           steps: ${{ toJson(steps) }}
           channel: '#code-review'
         if: always()

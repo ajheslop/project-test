@@ -1,0 +1,11 @@
+{
+    "blocks": [
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "Example: {{ example_key1 }} and {{ job_status }} and {{ toJson(steps) }}"
+        }
+      }
+    ]
+  }
