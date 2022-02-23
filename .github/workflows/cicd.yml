@@ -25,7 +25,8 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: act10ns/slack@v1
+      - name: Custom Slack Action
+        uses: Brymastr/slack-action@v1
         with:
           template: '.template.json'
           status: ${{ job.status }}
