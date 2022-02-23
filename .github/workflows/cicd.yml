@@ -28,7 +28,7 @@ jobs:
       - name: Custom Slack Action
         uses: Brymastr/slack-action@v1
         with:
-          template: './template.json'
+          template: 'template.json'
           status: ${{ job.status }}
           example_key1: example value 1
           steps: ${{ toJson(steps) }}
