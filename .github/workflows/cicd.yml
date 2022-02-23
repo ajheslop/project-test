@@ -29,8 +29,6 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
-          config: slack.yml
-          steps: ${{ toJson(steps) }}
           channel: '#code-review'
         if: always()
 
