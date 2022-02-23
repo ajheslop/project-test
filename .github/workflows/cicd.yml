@@ -26,15 +26,14 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-        uses: act10ns/slack@v1
+      - uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: '#code-review'
-          config: .github/config/slack.yml
-          message: Deploying {{ env.GITHUB_REF_NAME }} branch
-
+          message: Starting Docker Build and Push...
         if: always()
+
   
 
 # # if required for a private repository use:
