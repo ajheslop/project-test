@@ -27,8 +27,9 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: act10ns/slack@v1
-        with:
-          status: ${{ job.services }}
+        with: 
+          status: ${{ job.status }}
+          config: slack.yml
           channel: '#code-review'
         if: always()
 
