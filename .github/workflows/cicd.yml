@@ -34,15 +34,6 @@ jobs:
           message: Deploying {{ env.GITHUB_REF_NAME }} branch AND {{ env.GITHUB_RUN_ID }}, {{ env.GITHUB_RUN_ATTEMPT }}, {{ env.GITHUB_REPOSITORY_OWNER	}}
         if: always()
 
-        name: CI
-          on: push
-jobs:
-  prod-check:
-    if: ${{ github.ref == 'refs/heads/add-pre-commit' }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Deploying to production server on branch $GITHUB_REF"
-
   
 
 # # if required for a private repository use:
