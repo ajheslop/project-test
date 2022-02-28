@@ -27,14 +27,14 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: act10ns/slack@v1
-        with: 
+        with:
           status: ${{ job.status }}
           config: slack.yml
           channel: '#code-review'
           message: Deploying {{ env.GITHUB_REF_NAME }} branch AND {{ env.GITHUB_RUN_ID }}, {{ env.GITHUB_RUN_ATTEMPT }}, {{ env.GITHUB_REPOSITORY_OWNER	}}
         if: always()
 
-  
+
 
 # # if required for a private repository use:
 #  - uses: actions/checkout@v2

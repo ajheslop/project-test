@@ -15,6 +15,9 @@ repos:
     -   id: detect-private-key #detects the presence of private keys.
     -   id: name-tests-test #this verifies that test files are named correctly.
     -   id: sort-simple-yaml #sorts simple yaml files which consist only of top-level keys, preserving comments and blocks.
+    -   id: no-commit-to-branch # Prevent committing to a specific branch
+        args: [--branch, main] # don't commit to the main branch
+    -   id: check-merge-conflict # Prevent committing if a merge conflict is unresolved
 # -   repo: https://github.com/psf/black
 #     rev: 22.1.0
 #     hooks:
