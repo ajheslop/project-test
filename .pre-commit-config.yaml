@@ -18,6 +18,9 @@ repos:
     -   id: no-commit-to-branch # Prevent committing to a specific branch
         args: [--branch, main] # don't commit to the main branch
     -   id: check-merge-conflict # Prevent committing if a merge conflict is unresolved
+-   repo: meta
+    hooks:
+    -   id: identity
 # -   repo: https://github.com/psf/black
 #     rev: 22.1.0
 #     hooks:
